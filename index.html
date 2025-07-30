@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CS2 Cards — Магазин игроков</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 40px;
+      width: 100%;
+      max-width: 900px;
+    }
+    .player-card {
+      background-color: #1e1e1e;
+      border: 2px solid #444;
+      border-radius: 10px;
+      width: 160px;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+      box-sizing: border-box;
+    }
+    .player-card:hover {
+      transform: scale(1.05);
+      border-color: #f0c000;
+    }
+    .player-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    .player-card.selected {
+      border-color: #00ff88;
+      background-color: #263a2e;
+    }
+    .player-info p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Магазин игроков</h1>
+
+  <h2>Team Vitality</h2>
+  <div class="card-container">
+    <div class="player-card" onclick="selectPlayer(this)">
+      <img src="https://static.hltv.org/images/playerprofile/bodyshot/11893.png" alt="ZywOo" />
+      <h3>ZywOo</h3>
+      <div class="player-info">
+        <p>Роль: Снайпер</p>
+        <p>Рейтинг: 80</p>
+        <p>Цена: 30</p>
+        <p>Команда: Vitality</p>
+      </div>
+    </div>
+    <div class="player-card" onclick="selectPlayer(this)">
+      <img src="https://static.hltv.org/images/playerprofile/bodyshot/7322.png" alt="apEX" />
+      <h3>apEX</h3>
+      <div class="player-info">
+        <p>Роль: Капитан (IGL)</p>
+        <p>Рейтинг: 72</p>
+        <p>Цена: 22</p>
+        <p>Команда: Vitality</p>
+      </div>
+    </div>
+    <div class="player-card" onclick="selectPlayer(this)">
+      <img src="https://static.hltv.org/images/playerprofile/bodyshot/19733.png" alt="flameZ" />
+      <h3>flameZ</h3>
+      <div class="player-info">
+        <p>Роль: Риффлер</p>
+        <p>Рейтинг: 74</p>
+        <p>Цена: 23</p>
+        <p>Команда: Vitality</p>
+      </div>
+    </div>
+    <div class="player-card" onclick="selectPlayer(this)">
+      <img src="https://static.hltv.org/images/playerprofile/bodyshot/11816.png" alt="ropz" />
+      <h3>ropz</h3>
+      <div class="player-info">
+        <p>Роль: Риффлер</p>
+        <p>Рейтинг: 76</p>
+        <p>Цена: 26</p>
+        <p>Команда: Vitality</p>
+      </div>
+    </div>
+    <div class="player-card" onclick="selectPlayer(this)">
+      <img src="https://static.hltv.org/images/playerprofile/bodyshot/15249.png" alt="mezii" />
+      <h3>mezii</h3>
+      <div class="player-info">
+        <p>Роль: Риффлер</p>
+        <p>Рейтинг: 71</p>
+        <p>Цена: 20</p>
+        <p>Команда: Vitality</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>MOUZ</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/15929.jpg" alt="torzsi" />
+    <h3>torzsi</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 77</p>
+    <p>Цена: 28</p>
+    <p>Команда: MOUZ</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/10801.jpg" alt="Brollan" />
+    <h3>Brollan</h3>
+    <p>Роль: Капитан</p>
+    <p>Рейтинг: 70</p>
+    <p>Цена: 24</p>
+    <p>Команда: MOUZ</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/19630.jpg" alt="xertioN" />
+    <h3>xertioN</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 22</p>
+    <p>Команда: MOUZ</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/23485.jpg" alt="Jimpphat" />
+    <h3>Jimpphat</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 66</p>
+    <p>Цена: 20</p>
+    <p>Команда: MOUZ</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/13915.jpg" alt="Spinx" />
+    <h3>Spinx</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 69</p>
+    <p>Цена: 21</p>
+    <p>Команда: MOUZ</p>
+  </div>
+</div>
+
+<h2>The MongolZ</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/19676.png" alt="910">
+    <h3>910</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 66</p>
+    <p>Цена: 20</p>
+    <p>Команда: The MongolZ</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/20233.png" alt="blitz">
+    <h3>blitz</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 22</p>
+    <p>Команда: The MongolZ</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/20378.png" alt="Techno4K">
+    <h3>Techno4K</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 64</p>
+    <p>Цена: 18</p>
+    <p>Команда: The MongolZ</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/23764.png" alt="mzinho">
+    <h3>mzinho</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 65</p>
+    <p>Цена: 19</p>
+    <p>Команда: The MongolZ</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/23314.png" alt="Senzu">
+    <h3>Senzu</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 75</p>
+    <p>Цена: 27</p>
+    <p>Команда: The MongolZ</p>
+  </div>
+</div>
+
+<h2>Team Spirit</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/16920.png" alt="sh1ro">
+    <h3>sh1ro</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 78</p>
+    <p>Цена: 29</p>
+    <p>Команда: Team Spirit</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/3849.png" alt="chopper">
+    <h3>chopper</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 64</p>
+    <p>Цена: 18</p>
+    <p>Команда: Team Spirit</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/23942.png" alt="donk">
+    <h3>donk</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 80</p>
+    <p>Цена: 35</p>
+    <p>Команда: Team Spirit</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/23726.png" alt="zont1x">
+    <h3>Zont1x</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 70</p>
+    <p>Цена: 24</p>
+    <p>Команда: Team Spirit</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24063.png" alt="zweih">
+    <h3>Zweih</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 66</p>
+    <p>Цена: 20</p>
+    <p>Команда: Team Spirit</p>
+  </div>
+</div>
+
+<h2>Aurora</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/8529.png" alt="woxic">
+    <h3>woxic</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 71</p>
+    <p>Цена: 22</p>
+    <p>Команда: Aurora</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/7150.png" alt="MAJ3R">
+    <h3>MAJ3R</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 65</p>
+    <p>Цена: 19</p>
+    <p>Команда: Aurora</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/7592.png" alt="XANTARES">
+    <h3>XANTARES</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 76</p>
+    <p>Цена: 27</p>
+    <p>Команда: Aurora</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24221.png" alt="Wicadia">
+    <h3>Wicadia</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 21</p>
+    <p>Команда: Aurora</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24225.png" alt="jottAAA">
+    <h3>jottAAA</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 67</p>
+    <p>Цена: 20</p>
+    <p>Команда: Aurora</p>
+  </div>
+</div>
+ 
+<h2>Falcons</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/19276.png" alt="m0NESY">
+    <h3>m0NESY</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 79</p>
+    <p>Цена: 32</p>
+    <p>Команда: Falcons</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/20315.png" alt="kyxsan">
+    <h3>kyxsan</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 70</p>
+    <p>Цена: 24</p>
+    <p>Команда: Falcons</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/3741.png" alt="NiKo">
+    <h3>NiKo</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 77</p>
+    <p>Цена: 28</p>
+    <p>Команда: Falcons</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/13157.png" alt="TeSeS">
+    <h3>TeSeS</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 72</p>
+    <p>Цена: 23</p>
+    <p>Команда: Falcons</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24174.png" alt="Kyousuke">
+    <h3>Kyousuke</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 74</p>
+    <p>Цена: 26</p>
+    <p>Команда: Falcons</p>
+  </div>
+</div>
+
+<h2>FaZe</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/11916.png" alt="broky">
+    <h3>broky</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 75</p>
+    <p>Цена: 27</p>
+    <p>Команда: FaZe</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/429.png" alt="karrigan">
+    <h3>karrigan</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 65</p>
+    <p>Цена: 19</p>
+    <p>Команда: FaZe</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/8183.png" alt="rain">
+    <h3>rain</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 72</p>
+    <p>Цена: 23</p>
+    <p>Команда: FaZe</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/7398.png" alt="EliGE">
+    <h3>EliGE</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 70</p>
+    <p>Цена: 22</p>
+    <p>Команда: FaZe</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/16555.png" alt="frozen">
+    <h3>frozen</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 74</p>
+    <p>Цена: 25</p>
+    <p>Команда: FaZe</p>
+  </div>
+</div>
+
+<h2>FURIA</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/25616.png" alt="molodoy">
+    <h3>molodoy</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 69</p>
+    <p>Цена: 21</p>
+    <p>Команда: FURIA</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/2023.png" alt="FalleN">
+    <h3>FalleN</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 20</p>
+    <p>Команда: FURIA</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/10394.png" alt="yuurih">
+    <h3>yuurih</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 73</p>
+    <p>Цена: 24</p>
+    <p>Команда: FURIA</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/11264.png" alt="YEKINDAR">
+    <h3>YEKINDAR</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 74</p>
+    <p>Цена: 25</p>
+    <p>Команда: FURIA</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/13666.png" alt="KSCERATO">
+    <h3>KSCERATO</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 76</p>
+    <p>Цена: 27</p>
+    <p>Команда: FURIA</p>
+  </div>
+</div>
+
+<h2>NAVI</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/21721.png" alt="w0nderful">
+    <h3>w0nderful</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 75</p>
+    <p>Цена: 27</p>
+    <p>Команда: NAVI</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/10194.png" alt="AleksiB">
+    <h3>AleksiB</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 20</p>
+    <p>Команда: NAVI</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/19731.png" alt="iM">
+    <h3>iM</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 72</p>
+    <p>Цена: 23</p>
+    <p>Команда: NAVI</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/16555.png" alt="b1t">
+    <h3>b1t</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 74</p>
+    <p>Цена: 25</p>
+    <p>Команда: NAVI</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24293.png" alt="makazze">
+    <h3>makazze</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 66</p>
+    <p>Цена: 19</p>
+    <p>Команда: NAVI</p>
+  </div>
+</div>
+
+<h2>Pain Gaming</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/19791.png" alt="nqz">
+    <h3>nqz</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 71</p>
+    <p>Цена: 22</p>
+    <p>Команда: Pain Gaming</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/8637.png" alt="biguzera">
+    <h3>biguzera</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 70</p>
+    <p>Цена: 21</p>
+    <p>Команда: Pain Gaming</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/25667.png" alt="snow">
+    <h3>snow</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 65</p>
+    <p>Цена: 18</p>
+    <p>Команда: Pain Gaming</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/20947.png" alt="dav1deuS">
+    <h3>dav1deuS</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 20</p>
+    <p>Команда: Pain Gaming</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/18981.png" alt="dgt">
+    <h3>dgt</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 70</p>
+    <p>Цена: 21</p>
+    <p>Команда: Pain Gaming</p>
+  </div>
+</div>
+
+<h2>Astralis</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/7592.png" alt="device">
+    <h3>device</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 76</p>
+    <p>Цена: 26</p>
+    <p>Команда: Astralis</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/19640.png" alt="Hooxi">
+    <h3>Hooxi</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 67</p>
+    <p>Цена: 19</p>
+    <p>Команда: Astralis</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/9216.png" alt="stavn">
+    <h3>stavn</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 72</p>
+    <p>Цена: 24</p>
+    <p>Команда: Astralis</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/16596.png" alt="jabbi">
+    <h3>jabbi</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 71</p>
+    <p>Цена: 23</p>
+    <p>Команда: Astralis</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/11892.png" alt="staehr">
+    <h3>staehr</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 20</p>
+    <p>Команда: Astralis</p>
+  </div>
+</div>
+
+<h2>GamerLegion</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24060.png" alt="Kursy">
+    <h3>Kursy</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 21</p>
+    <p>Команда: GamerLegion</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/18744.png" alt="ztr">
+    <h3>ztr</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 66</p>
+    <p>Цена: 19</p>
+    <p>Команда: GamerLegion</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/9215.png" alt="REZ">
+    <h3>REZ</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 70</p>
+    <p>Цена: 23</p>
+    <p>Команда: GamerLegion</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/25757.png" alt="Tauson">
+    <h3>Tauson</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 65</p>
+    <p>Цена: 18</p>
+    <p>Команда: GamerLegion</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24698.png" alt="PR">
+    <h3>PR</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 67</p>
+    <p>Цена: 20</p>
+    <p>Команда: GamerLegion</p>
+  </div>
+</div>
+
+<h2>G2 Esports</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/17636.png" alt="SunPayus">
+    <h3>SunPayus</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 74</p>
+    <p>Цена: 25</p>
+    <p>Команда: G2 Esports</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/8850.png" alt="huNter-">
+    <h3>huNter-</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 72</p>
+    <p>Цена: 23</p>
+    <p>Команда: G2 Esports</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/19712.png" alt="malbsMd">
+    <h3>malbsMd</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 71</p>
+    <p>Цена: 22</p>
+    <p>Команда: G2 Esports</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24864.png" alt="HeavyGod">
+    <h3>HeavyGod</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 69</p>
+    <p>Цена: 20</p>
+    <p>Команда: G2 Esports</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/25106.png" alt="MATYS">
+    <h3>MATYS</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 19</p>
+    <p>Команда: G2 Esports</p>
+  </div>
+</div>
+
+<h2>Legacy</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/21526.png" alt="JACKZ">
+    <h3>JACKZ</h3>
+    <p>Роль: Капитан (IGL)</p>
+    <p>Рейтинг: 72</p>
+    <p>Цена: 24</p>
+    <p>Команда: Legacy</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/23696.png" alt="Trencher">
+    <h3>Trencher</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 20</p>
+    <p>Команда: Legacy</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24024.png" alt="ashley">
+    <h3>ashley</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 66</p>
+    <p>Цена: 18</p>
+    <p>Команда: Legacy</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24198.png" alt="bock1">
+    <h3>bock1</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 67</p>
+    <p>Цена: 19</p>
+    <p>Команда: Legacy</p>
+  </div>
+
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/bodyshot/24987.png" alt="Latto">
+    <h3>Latto</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 65</p>
+    <p>Цена: 18</p>
+    <p>Команда: Legacy</p>
+  </div>
+</div>
+
+<h2>Virtus.pro</h2>
+<div class="card-container">
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/24298.jpg" alt="ICY" />
+    <h3>ICY</h3>
+    <p>Роль: Снайпер</p>
+    <p>Рейтинг: 75</p>
+    <p>Цена: 27</p>
+    <p>Команда: Virtus.pro</p>
+  </div>
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/21180.jpg" alt="electroNic" />
+    <h3>electroNic</h3>
+    <p>Роль: Капитан</p>
+    <p>Рейтинг: 72</p>
+    <p>Цена: 25</p>
+    <p>Команда: Virtus.pro</p>
+  </div>
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/20924.jpg" alt="Fame" />
+    <h3>Fame</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 70</p>
+    <p>Цена: 22</p>
+    <p>Команда: Virtus.pro</p>
+  </div>
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/23803.jpg" alt="Perfecto" />
+    <h3>Perfecto</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 69</p>
+    <p>Цена: 21</p>
+    <p>Команда: Virtus.pro</p>
+  </div>
+  <div class="player-card" onclick="selectPlayer(this)">
+    <img src="https://static.hltv.org/images/playerprofile/19235.jpg" alt="FL1T" />
+    <h3>FL1T</h3>
+    <p>Роль: Риффлер</p>
+    <p>Рейтинг: 68</p>
+    <p>Цена: 20</p>
+    <p>Команда: Virtus.pro</p>
+  </div>
+</div>
+
+<script>
+  function selectPlayer(card) {
+    card.classList.toggle("selected");
+  }
+</script>
+
+</body>
+</html>
+
