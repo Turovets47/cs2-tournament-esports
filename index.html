@@ -1129,14 +1129,6 @@ function switchTab(tab) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  updateBalance();
-  initCards();
-  renderTeam();
-  generateTournament();
-});
-}
-
 // --- ТУРНИРНАЯ СЕТКА --- //
 
 const hltvTeams = [
@@ -1262,7 +1254,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initCards();
   renderTeam();
   generateTournament();
-  document.getElementById("simulate-btn").onclick = simulateTournament;
+  const btn = document.getElementById("simulate-btn");
+  if (btn) {
+    btn.onclick = simulateTournament;
+  }
+});
 });
 </script>
 </body>
